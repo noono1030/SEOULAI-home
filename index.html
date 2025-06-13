@@ -52,27 +52,72 @@
             color: #3b82f6;
             transform: scale(1.1);
         }
-        /* 비밀번호 모달 스타일 */
-        .password-modal-overlay {
+        /* 비밀번호 및 포트폴리오 모달 스타일 */
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(5px);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 100;
         }
-        .password-modal-content {
+        .modal-content {
             background-color: #1f2937;
             padding: 2rem;
             border-radius: 0.5rem;
             width: 90%;
             max-width: 400px;
             border: 1px solid #4b5563;
+        }
+        #portfolio-overlay {
+            overflow: hidden;
+        }
+        #portfolio-slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .portfolio-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+        }
+        .portfolio-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .modal-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            color: white;
+            width: 50px;
+            height: 50px;
+            z-index: 110;
+            border: 1px solid white;
+        }
+        #portfolio-prev { left: 20px; }
+        #portfolio-next { right: 20px; }
+        #portfolio-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            background: none;
+            border: none;
+            z-index: 110;
         }
     </style>
 </head>
@@ -87,8 +132,8 @@
                 <a href="#page-5" class="nav-link">Customer</a>
                 <a href="#page-7" class="nav-link">Solution</a>
                 <a href="#page-11" class="nav-link">About Us</a>
-                <a href="#page-13" class="nav-link portfolio-link">구성원 포트폴리오</a>
-                <a href="#page-23" class="nav-link bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-semibold transition-colors">Contact</a>
+                <a href="#" class="nav-link portfolio-link">구성원 포트폴리오</a>
+                <a href="#page-13" class="nav-link bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-semibold transition-colors">Contact</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -99,13 +144,13 @@
              <a href="#page-5" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Customer</a>
              <a href="#page-7" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Solution</a>
              <a href="#page-11" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">About Us</a>
-             <a href="#page-13" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors portfolio-link">구성원 포트폴리오</a>
-             <a href="#page-23" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Contact</a>
+             <a href="#" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors portfolio-link">구성원 포트폴리오</a>
+             <a href="#page-13" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Contact</a>
         </div>
     </header>
 
     <main>
-        <!-- Page 1 to 12 -->
+        <!-- Intro, Customer, Solution, About Us Sections -->
         <section id="page-1" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-10%20114043.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h1 class="text-8xl md:text-9xl font-black leading-tight">SEOULAI</h1><p class="mt-24 text-2xl md:text-3xl text-blue-300 font-semibold leading-relaxed">YOUR PROBLEM SOLVING MARKETING PARTNER</p><p class="mt-8 text-xl md:text-2xl text-gray-300 leading-relaxed">당신의 마케팅 문제 해결사</p></div></section>
         <section id="page-2" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-06%20011613.png');"><div class="relative z-2 text-center px-6 max-w-4xl" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h2 class="text-5xl md:text-6xl font-bold leading-tight">우리는 문제해결사 입니다</h2><p class="mt-24 text-gray-200 text-xl leading-relaxed">업계 최고의 글로벌 마케팅 전문 인력과 AI 솔루션을 통해, 고객의 유입과 판매까지 문제를 가장 빠르게 진단하고 실행합니다.</p></div></section>
         <section id="page-3" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/3.png');"><div class="relative z-2 text-center px-6 max-w-4xl" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h2 class="text-6xl md:text-7xl font-bold leading-tight">직접판매로 매출의 성장</h2><p class="mt-24 text-gray-200 text-xl leading-relaxed">서울 아이는 광고비만 집행하는 대행사가 아닙니다. <br>직접 판매로 매출을 책임지는 마케팅 하는 회사입니다.</p></div></section>
@@ -120,18 +165,20 @@
         <section id="page-12" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-06%20011613.png');"><div class="content-wrapper text-center"><p class="text-3xl text-gray-300 mb-4">서울아이 구성원은 한국 및 글로벌 마케팅에서</p><h3 class="text-5xl font-bold text-white mb-32">충분한 역량을 보유하고 있습니다</h3><div class="grid md:grid-cols-3 gap-6 text-left"><div class="bg-gray-800/50 p-6 rounded-lg"><h4 class="font-bold text-blue-400 mb-2 text-xl">Korea</h4><p class="text-gray-300">10년 이상 한국 소비자 특화 캠페인 및 대기업 디지털 마케팅 A-Z 총괄. 다양한 섹터 경험 보유.</p></div><div class="bg-gray-800/50 p-6 rounded-lg"><h4 class="font-bold text-blue-400 mb-2 text-xl">Global</h4><p class="text-gray-300">미국/유럽 시장 특화 콘텐츠 제작. 구글/메타 플랫폼 중심의 대규모 글로벌 미디어 및 인플루언서 캠페인 운영.</p></div><div class="bg-gray-800/50 p-6 rounded-lg"><h4 class="font-bold text-blue-400 mb-2 text-xl">Europe</h4><p class="text-gray-300">4년간 대기업 팬유럽 마케팅 총괄. 현지 인사이트 기반 로컬 프로모션 및 브랜드 콜라보 진행.</p></div></div></div></section>
         
         <!-- Portfolio Section -->
-        <section id="page-13" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/24.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">포트폴리오 한국 유럽 글로벌</h3></div></section>
-        <section id="page-14" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/20.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">HISTORY</h3></div></section>
-        <section id="page-15" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/nqzxez8lmibbb3v.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">데이터 최적화 운영전략</h3></div></section>
-        <section id="page-16" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/22.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">디지털 마케팅 성과</h3></div></section>
-        <section id="page-17" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/Consumer-Decision-Journey.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Consumer Decision Journey</h3></div></section>
-        <section id="page-18" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/Brand-Film-Jason-Statham.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Brand Film - Jason Statham</h3></div></section>
-        <section id="page-19" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/YOUTUBE-X-MEGA-INFULUENCER.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Youtube x Mega Influencer</h3></div></section>
-        <section id="page-20" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/FACEBOOK-INFLUENCER-SEEDING.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Facebook Influencer Seeding</h3></div></section>
-        <section id="page-21" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/GOOGLE-and-META-X-BTS.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Google & Meta x BTS</h3></div></section>
-        <section id="page-22" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/NO-1-APP-CREATION-and-DOWNLOAD.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">No.1 App Creation & Download</h3></div></section>
-        
-        <!-- Page 23: Contact -->
+        <div id="portfolio-pages" class="hidden">
+            <section id="page-13" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/24.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">포트폴리오 한국 유럽 글로벌</h3></div></section>
+            <section id="page-14" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/20.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">HISTORY</h3></div></section>
+            <section id="page-15" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/nqzxez8lmibbb3v.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">데이터 최적화 운영전략</h3></div></section>
+            <section id="page-16" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/22.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">디지털 마케팅 성과</h3></div></section>
+            <section id="page-17" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/Consumer-Decision-Journey.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Consumer Decision Journey</h3></div></section>
+            <section id="page-18" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/Brand-Film-Jason-Statham.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Brand Film - Jason Statham</h3></div></section>
+            <section id="page-19" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/YOUTUBE-X-MEGA-INFULUENCER.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Youtube x Mega Influencer</h3></div></section>
+            <section id="page-20" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/FACEBOOK-INFLUENCER-SEEDING.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Facebook Influencer Seeding</h3></div></section>
+            <section id="page-21" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/GOOGLE-and-META-X-BTS.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Google & Meta x BTS</h3></div></section>
+            <section id="page-22" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/NO-1-APP-CREATION-and-DOWNLOAD.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">No.1 App Creation & Download</h3></div></section>
+        </div>
+
+        <!-- Contact Section -->
         <section id="page-23" class="page-section" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop');">
             <div class="content-wrapper">
                 <h2 class="text-7xl font-bold text-center mb-4">Contact Us</h2>
@@ -161,8 +208,8 @@
     </footer>
 
     <!-- Password Modal -->
-    <div id="password-modal" class="password-modal-overlay hidden">
-        <div class="password-modal-content">
+    <div id="password-modal" class="modal-overlay hidden">
+        <div class="modal-content">
             <h3 class="text-2xl font-bold mb-4 text-center">비밀번호 입력</h3>
             <p class="text-center text-gray-400 mb-6">이 콘텐츠는 보호되어 있습니다.</p>
             <form id="password-form">
@@ -172,6 +219,16 @@
                 <button type="button" id="close-modal" class="w-full mt-2 p-3 bg-gray-600 hover:bg-gray-700 rounded-md font-bold transition-colors">취소</button>
             </form>
         </div>
+    </div>
+
+    <!-- Portfolio Overlay -->
+    <div id="portfolio-overlay" class="modal-overlay hidden">
+        <button id="portfolio-close" class="modal-nav-button" style="top: 20px; right: 20px; width: 50px; height: 50px; font-size: 1.5rem;">&times;</button>
+        <button id="portfolio-prev" class="modal-nav-button">&lt;</button>
+        <div id="portfolio-slider" class="w-full h-full">
+             <!-- Portfolio slides will be injected here by script -->
+        </div>
+        <button id="portfolio-next" class="modal-nav-button">&gt;</button>
     </div>
 
     <script>
@@ -225,16 +282,69 @@
                     passwordModal.classList.add('hidden');
                     passwordInput.value = '';
                     passwordError.classList.add('hidden');
-                    document.querySelector('#page-13').scrollIntoView({ behavior: 'smooth' });
+                    openPortfolio();
                 } else {
                     passwordError.classList.remove('hidden');
                     passwordInput.value = '';
                 }
             });
 
+            // --- 포트폴리오 오버레이 로직 ---
+            const portfolioOverlay = document.getElementById('portfolio-overlay');
+            const portfolioSlider = document.getElementById('portfolio-slider');
+            const portfolioClose = document.getElementById('portfolio-close');
+            const portfolioPrev = document.getElementById('portfolio-prev');
+            const portfolioNext = document.getElementById('portfolio-next');
+            let currentPortfolioSlide = 0;
+            
+            const portfolioImages = [
+                'https://gi.esmplus.com/meme153/24.png',
+                'https://gi.esmplus.com/meme153/20.png',
+                'https://gi.esmplus.com/meme153/nqzxez8lmibbb3v.png',
+                'https://gi.esmplus.com/meme153/22.png',
+                'https://gi.esmplus.com/meme153/Consumer-Decision-Journey.png',
+                'https://gi.esmplus.com/meme153/Brand-Film-Jason-Statham.png',
+                'https://gi.esmplus.com/meme153/YOUTUBE-X-MEGA-INFULUENCER.png',
+                'https://gi.esmplus.com/meme153/FACEBOOK-INFLUENCER-SEEDING.png',
+                'https://gi.esmplus.com/meme153/GOOGLE-and-META-X-BTS.png',
+                'https://gi.esmplus.com/meme153/NO-1-APP-CREATION-and-DOWNLOAD.png',
+            ];
+
+            function openPortfolio() {
+                portfolioSlider.innerHTML = ''; // Clear previous slides
+                portfolioImages.forEach(src => {
+                    const slide = document.createElement('div');
+                    slide.className = 'portfolio-slide';
+                    slide.innerHTML = `<img src="${src}" alt="Portfolio Image">`;
+                    portfolioSlider.appendChild(slide);
+                });
+                portfolioOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent main page from scrolling
+                goToPortfolioSlide(0);
+            }
+
+            function closePortfolio() {
+                portfolioOverlay.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore main page scrolling
+            }
+
+            function goToPortfolioSlide(index) {
+                portfolioSlider.style.transform = `translateX(-${index * 100}%)`;
+                currentPortfolioSlide = index;
+            }
+
+            portfolioClose.addEventListener('click', closePortfolio);
+            portfolioNext.addEventListener('click', () => {
+                goToPortfolioSlide((currentPortfolioSlide + 1) % portfolioImages.length);
+            });
+            portfolioPrev.addEventListener('click', () => {
+                goToPortfolioSlide((currentPortfolioSlide - 1 + portfolioImages.length) % portfolioImages.length);
+            });
+
+
             // --- 스크롤에 따른 네비게이션 활성화 ---
             const sections = document.querySelectorAll('.page-section');
-            const navLinks = document.querySelectorAll('header .nav-link');
+            const navLinks = document.querySelectorAll('header .nav-link:not(.portfolio-link)'); // Exclude portfolio link from scrollspy
             const observer = new IntersectionObserver(entries => {
                 let activeSectionId = '';
                 entries.forEach(entry => {
@@ -250,8 +360,7 @@
                     else if (pageNum >= 5 && pageNum <= 6) navTargetId = '#page-5';
                     else if (pageNum >= 7 && pageNum <= 10) navTargetId = '#page-7';
                     else if (pageNum >= 11 && pageNum <= 12) navTargetId = '#page-11';
-                    else if (pageNum >= 13 && pageNum <= 22) navTargetId = '#page-13';
-                    else if (pageNum === 23) navTargetId = '#page-23';
+                    else if (pageNum === 13) navTargetId = '#page-13';
                 }
                 
                 navLinks.forEach(link => {
