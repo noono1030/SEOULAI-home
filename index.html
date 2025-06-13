@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeoulAI - Your Problem Solving Marketing Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #111827;
+        }
+        .page-section {
+            min-height: 100vh; /* 각 페이지가 화면 전체 높이를 차지하도록 설정 */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+            background-size: cover;
+            background-position: center;
+            /* background-attachment: fixed; /* 배경 고정 효과 제거 */
+            position: relative;
+        }
+        /* 배경 위 콘텐츠 가독성을 위한 어두운 오버레이 */
+        .page-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* 오버레이를 조금 더 어둡게 조정 */
+            z-index: 1;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 900px;
+            width: 100%;
+            padding: 2rem 3rem;
+            border-radius: 0.75rem;
+        }
+        .nav-link.active {
+            color: #3b82f6;
+            transform: scale(1.1);
+        }
+        /* 비밀번호 모달 스타일 */
+        .password-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .password-modal-content {
+            background-color: #1f2937;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid #4b5563;
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- 상단 네비게이션 바 -->
+    <header class="bg-gray-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-700/50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#page-1" class="text-2xl font-bold tracking-tight">SeoulAI</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#page-1" class="nav-link">Intro</a>
+                <a href="#page-5" class="nav-link">Customer</a>
+                <a href="#page-7" class="nav-link">Solution</a>
+                <a href="#page-11" class="nav-link">About Us</a>
+                <a href="#page-13" class="nav-link portfolio-link">구성원 포트폴리오</a>
+                <a href="#page-23" class="nav-link bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md font-semibold transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95">
+             <a href="#page-1" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Intro</a>
+             <a href="#page-5" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Customer</a>
+             <a href="#page-7" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Solution</a>
+             <a href="#page-11" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">About Us</a>
+             <a href="#page-13" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors portfolio-link">구성원 포트폴리오</a>
+             <a href="#page-23" class="block py-3 px-6 text-center hover:bg-gray-800 transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page 1 to 12 -->
+        <section id="page-1" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-10%20114043.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h1 class="text-8xl md:text-9xl font-black leading-tight">SEOULAI</h1><p class="mt-24 text-2xl md:text-3xl text-blue-300 font-semibold leading-relaxed">YOUR PROBLEM SOLVING MARKETING PARTNER</p><p class="mt-8 text-xl md:text-2xl text-gray-300 leading-relaxed">당신의 마케팅 문제 해결사</p></div></section>
+        <section id="page-2" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-06%20011613.png');"><div class="relative z-2 text-center px-6 max-w-4xl" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h2 class="text-5xl md:text-6xl font-bold leading-tight">우리는 문제해결사 입니다</h2><p class="mt-24 text-gray-200 text-xl leading-relaxed">업계 최고의 글로벌 마케팅 전문 인력과 AI 솔루션을 통해, 고객의 유입과 판매까지 문제를 가장 빠르게 진단하고 실행합니다.</p></div></section>
+        <section id="page-3" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/3.png');"><div class="relative z-2 text-center px-6 max-w-4xl" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h2 class="text-6xl md:text-7xl font-bold leading-tight">직접판매로 매출의 성장</h2><p class="mt-24 text-gray-200 text-xl leading-relaxed">서울 아이는 광고비만 집행하는 대행사가 아닙니다. <br>직접 판매로 매출을 책임지는 마케팅 하는 회사입니다.</p></div></section>
+        <section id="page-4" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/4.png');"><div class="relative z-2 w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-16 lg:px-24 flex justify-start"><div class="text-left md:w-1/2 lg:w-2/5" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);"><h2 class="text-6xl md:text-7xl font-bold leading-tight">NO브랜드 → 브랜드로</h2><p class="mt-32 text-gray-200 text-xl leading-relaxed">파트너사에는 마케팅 활동으로 소비자 유입으로 인한 지속적 방문객 증가 및 매출 증대가 가능합니다. 브랜드 자산을 구축할 기회가 됩니다.</p></div></div></section>
+        <section id="page-5" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/5.png');"><div class="content-wrapper"><h3 class="text-5xl font-bold text-blue-400 mb-20 text-center">고객 목소리</h3><div class="grid md:grid-cols-3 gap-8"><div class="bg-gray-800/50 rounded-lg overflow-hidden text-center"><img src="https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-13%20210451.png" alt="예산 부족" class="w-full h-48 object-cover"><div class="p-6"><h4 class="font-bold text-2xl mb-2">예산 부족</h4><p class="text-gray-300 text-lg">"괜찮은 마케팅 전문가 쓸려면 돈이 많이 들 텐데.."</p></div></div><div class="bg-gray-800/50 rounded-lg overflow-hidden text-center"><img src="https://gi.esmplus.com/meme153/44444444.png" alt="성과 부진" class="w-full h-48 object-cover"><div class="p-6"><h4 class="font-bold text-2xl mb-2">성과 부진</h4><p class="text-gray-300 text-lg">"광고비만 많이 들고 매출이 안나오면 어쩌죠?"</p></div></div><div class="bg-gray-800/50 rounded-lg overflow-hidden text-center"><img src="https://gi.esmplus.com/meme153/6666666.png" alt="해외 진출의 어려움" class="w-full h-48 object-cover"><div class="p-6"><h4 class="font-bold text-2xl mb-2">해외 진출의 어려움</h4><p class="text-gray-300 text-lg">"수출이요? 하면 좋죠 그런데 복잡하고 어려워 보여서요"</p></div></div></div></div></section>
+        <section id="page-6" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/6.png');"><div class="content-wrapper"><h3 class="text-5xl font-bold text-blue-400 mb-16 text-center">이런 고객분들 이라면, 주목해주세요</h3><ul class="space-y-4 text-gray-200 text-2xl leading-relaxed"><li class="p-2"><span class="text-blue-500 mr-3">✓</span>마케팅 전문가 채용 예산이 부족한 기업</li><li class="p-2"><span class="text-blue-500 mr-3">✓</span>운영 전문성 부족으로 성과를 내지 못하는 기업</li><li class="p-2"><span class="text-blue-500 mr-3">✓</span>해외 진출이 어렵고 비용이 부족한 기업</li><li class="p-2"><span class="text-blue-500 mr-3">✓</span>우수한 제품을 매출로 연결할 실행력이 필요한 기업</li><li class="p-2"><span class="text-blue-500 mr-3">✓</span>마케팅 및 브랜딩 전략이 부재한 기업</li></ul></div></section>
+        <section id="page-7" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-13%20105435.png');"><div class="content-wrapper text-center"><h2 class="text-6xl font-bold text-white mb-2">단순 광고 대행 <span class="text-red-500">NO</span>, 직접 판매!</h2><h3 class="text-5xl font-bold text-blue-400 mb-16">NO BRAND → BRAND로 키울 기회!</h3><div class="grid md:grid-cols-2 gap-4 text-left text-lg"><div class="bg-gray-800 p-4 rounded-lg"><h4 class="font-bold mb-1">엑스퍼트 솔루션</h4><p>20년 경력 리더가 직접 진단, 최고 수준의 자문 제공</p></div><div class="bg-gray-800 p-4 rounded-lg"><h4 class="font-bold mb-1">AI 솔루션</h4><p>최소 비용/시간으로 데이터 기반 맞춤 전략 및 콘텐츠 제공</p></div><div class="bg-gray-800 p-4 rounded-lg"><h4 class="font-bold mb-1">브랜드 인큐베이팅</h4><p>온라인 채널 판매 전담, 브랜드와 매출 동반 성장</p></div></div></div></section>
+        <section id="page-8" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/12.png');"><div class="content-wrapper"><p class="text-center text-3xl text-blue-400 mb-4">추가 비용없이</p><h3 class="text-6xl font-bold text-center mb-4">판매 및 브랜드의 퀀텀 점프</h3><h4 class="text-4xl font-bold text-blue-400 text-center mb-12">브랜드 인큐베이터</h4><p class="text-center text-gray-300 mb-16 text-xl">제품 경쟁력은 있으나 마케팅 역량이 부족한 기업을 위한 파트너십입니다. 자사 온라인 채널을 전문가에게 맡겨 효율적으로 매출을 증대시키고 브랜드 인지도를 높일 수 있습니다.</p><div class="grid md:grid-cols-2 gap-8 text-lg"><div class="bg-gray-800/50 p-6 rounded-lg"><h5 class="font-bold text-2xl text-white mb-3">서울아이</h5><ul class="space-y-3 text-gray-300 list-disc list-inside"><li>경쟁력 있는 공급가로 제품 매입 또는 독점 판매 계약</li><li>파트너사 채널에서 모든 마케팅/판매 활동 전담</li><li>상세페이지 제작, 광고, 프로모션 기획 등 직접 실행</li><li>적극적인 마케팅으로 브랜드 가치 동반 상승</li></ul></div><div class="bg-gray-800/50 p-6 rounded-lg"><h5 class="font-bold text-2xl text-white mb-3">파트너사</h5><ul class="space-y-3 text-gray-300 list-disc list-inside"><li>경쟁력 있는 제품을 안정적으로 공급</li><li>판매 채널 운영에 필요한 기본 접근 권한 제공</li><li>제품 관련 상세 정보 및 필요 자료 공유</li></ul></div></div><p class="text-center text-gray-400 mt-8 italic text-xl">"서울아이는 단순 용역을 넘어, 고객사와 함께 위험을 공유하고 성장의 과실을 나누는 진정한 파트너십을 지향합니다"</p></div></section>
+        <section id="page-9" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-13%20105435.png');"><div class="content-wrapper !max-w-6xl text-center"><h3 class="text-5xl font-bold text-white mb-4">클릭 한번으로 쉽게 AI와 만드는 놀라운 결과물</h3><p class="text-gray-300 text-xl max-w-3xl mx-auto mb-16">AI 키비주얼, AI 모델, AI 전략이 한 번에!</p><div class="grid md:grid-cols-3 gap-8"><div class="bg-gray-800/50 rounded-lg overflow-hidden"><img src="https://gi.esmplus.com/meme153/K_%EB%B7%B0%ED%8B%B0_%EB%AA%A8%EB%8D%B8_%EC%98%81%EC%83%81_%EC%83%9D%EC%84%B1%EB%90%A8.gif" alt="AI Key Visual" class="w-full h-80 object-contain"><div class="p-4"><h4 class="font-bold text-2xl">AI 키비주얼</h4></div></div><div class="bg-gray-800/50 rounded-lg overflow-hidden"><img src="https://gi.esmplus.com/meme153/%EC%9A%B8%EA%B8%88%EB%85%80.gif" alt="AI Model" class="w-full h-80 object-contain"><div class="p-4"><h4 class="font-bold text-2xl">AI 모델</h4></div></div><div class="bg-gray-800/50 rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="AI Strategy" class="w-full h-80 object-cover"><div class="p-4"><h4 class="font-bold text-2xl">AI 전략</h4></div></div><div class="bg-gray-800/50 rounded-lg overflow-hidden"><img src="https://gi.esmplus.com/meme153/%EB%AA%A8%EB%8D%B8%202.png" alt="AI Model Example 1" class="w-full h-80 object-contain"></div><div class="bg-gray-800/50 rounded-lg overflow-hidden"><img src="https://gi.esmplus.com/meme153/AI%EB%A1%9C%EC%83%9D%EC%84%B1%EB%90%9C%20%EC%95%B0%ED%94%8C%EB%B3%91.png" alt="AI Model Example 2" class="w-full h-80 object-contain"></div><div class="bg-gray-800/50 rounded-lg overflow-hidden"><img src="https://gi.esmplus.com/meme153/%EB%AA%A8%EB%8D%B8%201.png" alt="AI Model Example 3" class="w-full h-80 object-contain"></div></div></div></section>
+        <section id="page-10" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/2222222.png');"><div class="content-wrapper !max-w-5xl"><h3 class="text-5xl font-bold text-white mb-24 text-center">엑스퍼트의 맞춤형 진단과 즉각적인 성과</h3><div class="relative flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0"><div class="hidden md:block absolute top-12 left-0 w-full h-1 border-t-2 border-dashed border-gray-500"></div><div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5"><div class="bg-blue-900/50 w-24 h-24 rounded-full flex items-center justify-center border-2 border-blue-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></div><h4 class="font-bold text-xl mt-4 text-blue-300">인지</h4><p class="text-gray-400 text-base mt-2">네이버, 구글 메타 캠페인, 글로벌 미디어 캠페인</p></div><div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5"><div class="bg-blue-900/50 w-24 h-24 rounded-full flex items-center justify-center border-2 border-blue-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></div><h4 class="font-bold text-xl mt-4 text-blue-300">친숙</h4><p class="text-gray-400 text-base mt-2">글로벌 및 한국 메가 인플루언서 캠페인</p></div><div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5"><div class="bg-blue-900/50 w-24 h-24 rounded-full flex items-center justify-center border-2 border-blue-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></div><h4 class="font-bold text-xl mt-4 text-blue-300">고려</h4><p class="text-gray-400 text-base mt-2">신문기사, 블로거 리뷰, 커뮤니티, 바이럴, SEO</p></div><div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5"><div class="bg-blue-900/50 w-24 h-24 rounded-full flex items-center justify-center border-2 border-blue-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div><h4 class="font-bold text-xl mt-4 text-blue-300">구매</h4><p class="text-gray-400 text-base mt-2">판매대행, E-commerce</p></div><div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/5"><div class="bg-blue-900/50 w-24 h-24 rounded-full flex items-center justify-center border-2 border-blue-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9a9 9 0 0114.23-5.23l.77.77M20 15a9 9 0 01-14.23 5.23l-.77-.77" /></svg></div><h4 class="font-bold text-xl mt-4 text-blue-300">재구매</h4><p class="text-gray-400 text-base mt-2">CRM, 리뷰관리</p></div></div></div></section>
+        <section id="page-11" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/111.png');"><div class="content-wrapper !max-w-6xl text-center"><h3 class="text-5xl font-bold text-white mb-32">서울아이 구성원은 성과로 증명합니다</h3><div class="grid grid-cols-3 md:grid-cols-3 gap-6 text-xl"><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">30개국</p><p class="text-base mt-2">글로벌 마켓</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">10Bil+</p><p class="text-base mt-2">연빌링</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">40M+</p><p class="text-base mt-2">유튜브 조회수</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">75M+</p><p class="text-base mt-2">인플루언서 조회수</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">NO.1</p><p class="text-base mt-2">앱 다운로드</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">12회</p><p class="text-base mt-2">네이버 실검 1위</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">10M+</p><p class="text-base mt-2">캠페인 방문객</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">7.6M+</p><p class="text-base mt-2">제품 씨딩 조회수</p></div><div class="bg-gray-800 p-4 rounded-lg"><p class="text-3xl md:text-4xl font-bold text-blue-400">9.5M+</p><p class="text-base mt-2">네이버 뉴스 조회수</p></div></div></div></section>
+        <section id="page-12" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-06-06%20011613.png');"><div class="content-wrapper text-center"><p class="text-3xl text-gray-300 mb-4">서울아이 구성원은 한국 및 글로벌 마케팅에서</p><h3 class="text-5xl font-bold text-white mb-32">충분한 역량을 보유하고 있습니다</h3><div class="grid md:grid-cols-3 gap-6 text-left"><div class="bg-gray-800/50 p-6 rounded-lg"><h4 class="font-bold text-blue-400 mb-2 text-xl">Korea</h4><p class="text-gray-300">10년 이상 한국 소비자 특화 캠페인 및 대기업 디지털 마케팅 A-Z 총괄. 다양한 섹터 경험 보유.</p></div><div class="bg-gray-800/50 p-6 rounded-lg"><h4 class="font-bold text-blue-400 mb-2 text-xl">Global</h4><p class="text-gray-300">미국/유럽 시장 특화 콘텐츠 제작. 구글/메타 플랫폼 중심의 대규모 글로벌 미디어 및 인플루언서 캠페인 운영.</p></div><div class="bg-gray-800/50 p-6 rounded-lg"><h4 class="font-bold text-blue-400 mb-2 text-xl">Europe</h4><p class="text-gray-300">4년간 대기업 팬유럽 마케팅 총괄. 현지 인사이트 기반 로컬 프로모션 및 브랜드 콜라보 진행.</p></div></div></div></section>
+        
+        <!-- Portfolio Section -->
+        <section id="page-13" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/24.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">포트폴리오 한국 유럽 글로벌</h3></div></section>
+        <section id="page-14" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/20.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">HISTORY</h3></div></section>
+        <section id="page-15" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/nqzxez8lmibbb3v.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">데이터 최적화 운영전략</h3></div></section>
+        <section id="page-16" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/22.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">디지털 마케팅 성과</h3></div></section>
+        <section id="page-17" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/Consumer-Decision-Journey.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Consumer Decision Journey</h3></div></section>
+        <section id="page-18" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/Brand-Film-Jason-Statham.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Brand Film - Jason Statham</h3></div></section>
+        <section id="page-19" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/YOUTUBE-X-MEGA-INFULUENCER.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Youtube x Mega Influencer</h3></div></section>
+        <section id="page-20" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/FACEBOOK-INFLUENCER-SEEDING.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Facebook Influencer Seeding</h3></div></section>
+        <section id="page-21" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/GOOGLE-and-META-X-BTS.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">Google & Meta x BTS</h3></div></section>
+        <section id="page-22" class="page-section" style="background-image: url('https://gi.esmplus.com/meme153/NO-1-APP-CREATION-and-DOWNLOAD.png');"><div class="relative z-2 text-center px-6" style="text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);"><h3 class="text-5xl font-bold">No.1 App Creation & Download</h3></div></section>
+        
+        <!-- Page 23: Contact -->
+        <section id="page-23" class="page-section" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop');">
+            <div class="content-wrapper">
+                <h2 class="text-7xl font-bold text-center mb-4">Contact Us</h2>
+                <p class="text-center text-gray-300 mb-12 text-xl">당신의 비즈니스 문제를 해결할 파트너를 찾고 계신가요?</p>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                        <div class="space-y-3 text-gray-300 text-lg">
+                            <p><strong>회사명:</strong> 서울 아이 (Seoul-i)</p><p><strong>대표:</strong> Mark Kim</p><p><strong>이메일:</strong> iamsslmo@gmail.com</p><p><strong>연락처:</strong> 010-1234-5678 (예시)</p><p><strong>주소:</strong> 경기도 남양주시 별내 3로 324</p>
+                        </div>
+                    </div>
+                    <form>
+                        <div class="space-y-4">
+                            <input type="text" placeholder="이름 (Name)" class="w-full p-3 bg-gray-800 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-lg">
+                            <input type="email" placeholder="이메일 (Email)" class="w-full p-3 bg-gray-800 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-lg">
+                            <textarea placeholder="문의 내용 (Message)" rows="5" class="w-full p-3 bg-gray-800 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-lg"></textarea>
+                            <button type="submit" class="w-full p-3 bg-blue-600 hover:bg-blue-700 rounded-md font-bold transition-colors text-lg">문의하기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 text-gray-500 bg-gray-900 relative z-10">
+        <p>&copy; 2025 SeoulAI. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Password Modal -->
+    <div id="password-modal" class="password-modal-overlay hidden">
+        <div class="password-modal-content">
+            <h3 class="text-2xl font-bold mb-4 text-center">비밀번호 입력</h3>
+            <p class="text-center text-gray-400 mb-6">이 콘텐츠는 보호되어 있습니다.</p>
+            <form id="password-form">
+                <input type="password" id="password-input" class="w-full p-3 bg-gray-800 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="비밀번호">
+                <p id="password-error" class="text-red-500 text-sm mt-2 text-center hidden">비밀번호가 일치하지 않습니다.</p>
+                <button type="submit" class="w-full mt-4 p-3 bg-blue-600 hover:bg-blue-700 rounded-md font-bold transition-colors">확인</button>
+                <button type="button" id="close-modal" class="w-full mt-2 p-3 bg-gray-600 hover:bg-gray-700 rounded-md font-bold transition-colors">취소</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- 네비게이션 & 스크롤 ---
+            document.querySelectorAll('a[href^="#"]:not(.portfolio-link)').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                });
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- 비밀번호 보호 로직 ---
+            const portfolioLinks = document.querySelectorAll('.portfolio-link');
+            const passwordModal = document.getElementById('password-modal');
+            const closeModalButton = document.getElementById('close-modal');
+            const passwordForm = document.getElementById('password-form');
+            const passwordInput = document.getElementById('password-input');
+            const passwordError = document.getElementById('password-error');
+            const correctPassword = 'seoulai0111!';
+
+            portfolioLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    passwordModal.classList.remove('hidden');
+                    passwordInput.focus();
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                });
+            });
+            
+            closeModalButton.addEventListener('click', () => {
+                passwordModal.classList.add('hidden');
+                passwordInput.value = '';
+                passwordError.classList.add('hidden');
+            });
+            
+            passwordForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (passwordInput.value === correctPassword) {
+                    passwordModal.classList.add('hidden');
+                    passwordInput.value = '';
+                    passwordError.classList.add('hidden');
+                    document.querySelector('#page-13').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    passwordError.classList.remove('hidden');
+                    passwordInput.value = '';
+                }
+            });
+
+            // --- 스크롤에 따른 네비게이션 활성화 ---
+            const sections = document.querySelectorAll('.page-section');
+            const navLinks = document.querySelectorAll('header .nav-link');
+            const observer = new IntersectionObserver(entries => {
+                let activeSectionId = '';
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                         activeSectionId = entry.target.id;
+                    }
+                });
+
+                let navTargetId = '';
+                if (activeSectionId) {
+                    const pageNum = parseInt(activeSectionId.split('-')[1]);
+                    if (pageNum >= 1 && pageNum <= 4) navTargetId = '#page-1';
+                    else if (pageNum >= 5 && pageNum <= 6) navTargetId = '#page-5';
+                    else if (pageNum >= 7 && pageNum <= 10) navTargetId = '#page-7';
+                    else if (pageNum >= 11 && pageNum <= 12) navTargetId = '#page-11';
+                    else if (pageNum >= 13 && pageNum <= 22) navTargetId = '#page-13';
+                    else if (pageNum === 23) navTargetId = '#page-23';
+                }
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === navTargetId) {
+                        link.classList.add('active');
+                    }
+                });
+
+            }, { threshold: 0.5 }); // 섹션이 50% 이상 보일 때
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
